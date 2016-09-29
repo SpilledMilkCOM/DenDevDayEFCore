@@ -1,0 +1,7 @@
+https://docs.efproject.net/en/latest/miscellaneous/cli/dotnet.html
+
+Command Line:
+
+Creates the database from the DbContext, can NOT be run from a Class Library project.
+
+c:\path\to\project> dotnet ef database update
