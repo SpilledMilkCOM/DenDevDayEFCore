@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using SM.DataModels.Stuff.Entities;
+using SM.DataModels.StuffDataModel.Entities;
 
-namespace SM.DataModels.Stuff
+namespace SM.DataModels.StuffDataModel
 {
 	public interface IStuffDataModel
     {
@@ -10,16 +10,18 @@ namespace SM.DataModels.Stuff
 
 		DbSet<Status> Statuses { get; set; }
 
-		DbSet<Entities.Stuff> Stuff { get; set; }
+		DbSet<Stuff> Stuff { get; set; }
 
 		bool AddPerson(Person person);
 
-		bool AddStuff(Entities.Stuff stuff);
+		bool AddStuff(Stuff stuff);
 
 		void Commit();
 
 		Person GetPerson(int id);
 
-		Entities.Stuff GetStuff(int id);
+		Person GetPerson(string lastName);
+
+		Stuff GetStuff(int id);
     }
 }

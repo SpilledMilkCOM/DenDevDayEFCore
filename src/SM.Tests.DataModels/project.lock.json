@@ -3400,7 +3400,7 @@
           "lib/netstandard1.1/xunit.runner.utility.dotnet.dll": {}
         }
       },
-      "SM.DataModels.Stuff.Web/1.0.0": {
+      "SM.DataModels.StuffDataModel.Web/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v1.0",
         "dependencies": {
@@ -3414,10 +3414,10 @@
           "Microsoft.NETCore.App": "1.0.0"
         },
         "compile": {
-          "netcoreapp1.0/SM.DataModels.Stuff.Web.dll": {}
+          "netcoreapp1.0/SM.DataModels.StuffDataModel.Web.dll": {}
         },
         "runtime": {
-          "netcoreapp1.0/SM.DataModels.Stuff.Web.dll": {}
+          "netcoreapp1.0/SM.DataModels.StuffDataModel.Web.dll": {}
         }
       }
     }
@@ -9243,10 +9243,10 @@
         "xunit.runner.utility.nuspec"
       ]
     },
-    "SM.DataModels.Stuff.Web/1.0.0": {
+    "SM.DataModels.StuffDataModel.Web/1.0.0": {
       "type": "project",
-      "path": "../SM.DataModels.Stuff.Web/project.json",
-      "msbuildProject": "../SM.DataModels.Stuff.Web/SM.DataModels.Stuff.Web.xproj"
+      "path": "../SM.DataModels.StuffDataModel.Web/project.json",
+      "msbuildProject": "../SM.DataModels.StuffDataModel.Web/SM.DataModels.StuffDataModel.Web.xproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -9256,7 +9256,7 @@
       "Microsoft.Extensions.Configuration.FileExtensions >= 1.0.0",
       "Microsoft.Extensions.Configuration.Json >= 1.0.0",
       "Microsoft.Extensions.Logging >= 1.0.0",
-      "SM.DataModels.Stuff.Web >= 1.0.0",
+      "SM.DataModels.StuffDataModel.Web >= 1.0.0",
       "dotnet-test-xunit >= 2.2.0-*",
       "xunit >= 2.2.0-*"
     ],

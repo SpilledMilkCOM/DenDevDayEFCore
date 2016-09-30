@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;			// For [Key]
 using System.ComponentModel.DataAnnotations.Schema;		// For [Table]
 
-namespace SM.DataModels.Stuff.Entities
+namespace SM.DataModels.StuffDataModel.Entities
 {
 	[Table("People")]
 	public class Person

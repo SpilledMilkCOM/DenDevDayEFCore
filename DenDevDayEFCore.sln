@@ -18,7 +18,7 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.DataModels.Stuff", "src\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.Tests.DataModels", "src\SM.Tests.DataModels\SM.Tests.DataModels.xproj", "{C3B1D443-3603-4D61-8AD0-FC86D917C2E3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.DataModels.Stuff.Web", "src\SM.DataModels.Stuff.Web\SM.DataModels.Stuff.Web.xproj", "{18DCFA14-6875-47B8-8554-A38E7F3CA552}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.DataModels.StuffDataModel.Web", "src\SM.DataModels.StuffDataModel.Web\SM.DataModels.StuffDataModel.Web.xproj", "{18DCFA14-6875-47B8-8554-A38E7F3CA552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

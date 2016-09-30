@@ -6,8 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-using SM.DataModels.Stuff;
-using SM.DataModels.Stuff.Entities;
+using SM.DataModels.StuffDataModel;
+using SM.DataModels.StuffDataModel.Entities;
 
 namespace SM.Tests.DataModels
 {
@@ -33,43 +33,106 @@ namespace SM.Tests.DataModels
 			InitializeServices(_serviceCollection);
 		}
 
-		// Teardown
+		// Teardown (minimal implementation of IDisposable)
 		public void Dispose()
 		{
 			// Cleanup stuff here (tear down)
+
+			Cleanup();
 
 			_serviceCollection = null;
 		}
 
 		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson()
+		public void StuffDbContext_AddStuff()
 		{
 			var test = ConstructTestObject();
-			var person = new Person
+			var owner = ConstructPerson();
+			var stuff = ConstructStuff(owner);
+
+			test.AddPerson(owner);
+			test.AddStuff(stuff);
+
+			test.Commit();
+
+			var actual = test.GetStuff(stuff.Id);
+
+			Assert.NotNull(actual);
+			Assert.Equal(stuff.Id, actual.Id);
+			Assert.Equal(stuff.Name, actual.Name);
+		}
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_AddPerson_GetPerson()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);        // Kind of a bogus assertion.
+
+			test.Commit();
+
+			person = test.GetPerson(person.LastName);
+
+			Assert.NotNull(person);
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+		}
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_AddPerson_NoCommit_GetPerson()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);		// Kind of a bogus assertion.
+
+			//test.Commit();			// You need this commit to make the change persist to the database.
+
+			person = test.GetPerson(person.LastName);
+
+			Assert.Null(person);
+		}
+
+		//----==== PRIVATE ====--------------------------------------------------------------------
+
+		private void Cleanup()
+		{
+			var test = ConstructTestObject();
+
+			test.Statuses.RemoveRange(test.Statuses);
+			test.Stuff.RemoveRange(test.Stuff);
+			test.People.RemoveRange(test.People);
+
+			test.Commit();
+		}
+
+		private Person ConstructPerson()
+		{
+			return new Person
 			{
 				FirstName = "Parker",
 				LastName = "Smart",
 				Email = "psmart@spilledmilk.com"
 			};
-
-			var result = test.AddPerson(person);
-
-			Assert.True(result);
-
-			test.Commit();
 		}
 
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_GetPerson()
+		private Stuff ConstructStuff(Person owner)
 		{
-			var test = ConstructTestObject();
-
-			var actual = test.GetPerson(1);
-
-			Assert.Null(actual);
+			return new Stuff()
+			{
+				Name = "Iron Man 3",
+				Description = "Paramount, Film, Blu-ray",
+				ImageUrl = "http://www.dvd-covers.org/d/313520-2/Iron_Man_3_-_Custom2.jpg",
+				Owner = owner
+			};
 		}
-
-		//----==== PRIVATE ====--------------------------------------------------------------------
 
 		private IStuffDataModel ConstructTestObject()
 		{

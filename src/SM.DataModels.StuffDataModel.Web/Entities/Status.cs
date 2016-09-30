@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SM.DataModels.Stuff.Entities
+namespace SM.DataModels.StuffDataModel.Entities
 {
 	[Table("Statuses")]
 	public class Status

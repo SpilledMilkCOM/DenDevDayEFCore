@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace SM.DataModels.Stuff.Web
+namespace SM.DataModels.StuffDataModel.Web
 {
 	public class Startup
     {

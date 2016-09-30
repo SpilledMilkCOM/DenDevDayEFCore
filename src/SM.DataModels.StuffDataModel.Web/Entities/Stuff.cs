@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;            // For [Key]
 using System.ComponentModel.DataAnnotations.Schema;     // For [Table], [Column]
 
-namespace SM.DataModels.Stuff.Entities
+namespace SM.DataModels.StuffDataModel.Entities
 {
 	/// <summary>
 	/// A basic entity to keep track of stuff.

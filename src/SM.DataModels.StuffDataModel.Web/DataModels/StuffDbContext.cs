@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Linq;
+
 using Microsoft.EntityFrameworkCore;
 
-using SM.DataModels.Stuff.Entities;
+using SM.DataModels.StuffDataModel.Entities;
 
-namespace SM.DataModels.Stuff
+namespace SM.DataModels.StuffDataModel
 {
 	public class StuffDbContext : DbContext, IStuffDataModel
 	{
+		// Since this DbContext isfor the basic example, this contains "repository" type methods
+
 		public StuffDbContext(DbContextOptions<StuffDbContext> options)
 			: base(options) { }
 
@@ -45,12 +48,19 @@ namespace SM.DataModels.Stuff
 			return People.FirstOrDefault(item => item.Id == id);
 		}
 
-		public Entities.Stuff GetStuff(int id)
+		public Person GetPerson(string lastName)
+		{
+			return People.FirstOrDefault(item => item.LastName == lastName);
+		}
+
+		public Stuff GetStuff(int id)
 		{
 			// TODO: Need to include Owner.
 
 			return Stuff.FirstOrDefault(item => item.Id == id);
 		}
+
+		//----==== PROTECTED ====------------------------------------------------------------------
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
