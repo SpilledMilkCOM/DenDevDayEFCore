@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;            // For [Key]
-using System.ComponentModel.DataAnnotations.Schema;     // For [Table], [Column]
 
 namespace SM.DataModels.StuffDataModel.Entities
 {

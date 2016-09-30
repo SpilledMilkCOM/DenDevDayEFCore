@@ -9,10 +9,13 @@ Basics:
 
 Intermediate:
 -------------
-  - Repository with ModelBuilder mapping (no attributes on POCOs)
+  - Separate duties with a repository and DbContext
+  - More data entity attributes to customize the database.
+  - A simple stored procedure call.
 
 Advanced:
 ---------
   - Calling a stored procedure with a User Defined Table Type (using NReco.Data)
   - Code sharing between .Net Core and .Net Old (no Code First)
+  - Repository with ModelBuilder mapping (no attributes on POCOs)
   - Abstracting the ModelBuilder and DbModelBuilder.
