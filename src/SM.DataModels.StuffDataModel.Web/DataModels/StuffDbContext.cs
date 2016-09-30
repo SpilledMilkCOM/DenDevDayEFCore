@@ -18,7 +18,7 @@ namespace SM.DataModels.StuffDataModel
 
 		public DbSet<Status> Statuses { get; set; }
 
-		public DbSet<Entities.Stuff> Stuff { get; set; }
+		public DbSet<Stuff> Stuff { get; set; }
 
 		public bool AddPerson(Person person)
 		{
@@ -29,7 +29,16 @@ namespace SM.DataModels.StuffDataModel
 			return true;
 		}
 
-		public bool AddStuff(Entities.Stuff stuff)
+		public bool AddStatus(Status status)
+		{
+			status.DateRequested = DateTime.Now;		// This starts the "workflow"
+
+			Statuses.Add(status);
+
+			return true;
+		}
+
+		public bool AddStuff(Stuff stuff)
 		{
 			stuff.DateAdded = DateTime.Now;
 
@@ -51,6 +60,13 @@ namespace SM.DataModels.StuffDataModel
 		public Person GetPerson(string lastName)
 		{
 			return People.FirstOrDefault(item => item.LastName == lastName);
+		}
+
+		public Status GetStatus(int id)
+		{
+			// TODO: Need to include Owner.
+
+			return Statuses.FirstOrDefault(item => item.Id == id);
 		}
 
 		public Stuff GetStuff(int id)

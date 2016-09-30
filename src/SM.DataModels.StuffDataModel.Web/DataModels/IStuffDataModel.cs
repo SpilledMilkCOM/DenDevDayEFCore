@@ -14,6 +14,8 @@ namespace SM.DataModels.StuffDataModel
 
 		bool AddPerson(Person person);
 
+		bool AddStatus(Status status);
+
 		bool AddStuff(Stuff stuff);
 
 		void Commit();
@@ -22,6 +24,8 @@ namespace SM.DataModels.StuffDataModel
 
 		Person GetPerson(string lastName);
 
+		Status GetStatus(int id);
+
 		Stuff GetStuff(int id);
-    }
+	}
 }

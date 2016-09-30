@@ -38,9 +38,30 @@ namespace SM.Tests.DataModels
 		{
 			// Cleanup stuff here (tear down)
 
-			Cleanup();
+			//Cleanup();
 
 			_serviceCollection = null;
+		}
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_AddStatus()
+		{
+			var test = ConstructTestObject();
+			var owner = ConstructPerson();
+			var stuff = ConstructStuff(owner);
+			var requestor = ConstructPerson2();
+			var status = ConstructStatus(requestor, stuff);
+
+			test.AddPerson(owner);
+			test.AddStuff(stuff);
+			test.AddStatus(status);
+
+			test.Commit();
+
+			var actual = test.GetStatus(status.Id);
+
+			Assert.NotNull(actual);
+			Assert.Equal(status.Id, actual.Id);
 		}
 
 		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
@@ -60,6 +81,8 @@ namespace SM.Tests.DataModels
 			Assert.NotNull(actual);
 			Assert.Equal(stuff.Id, actual.Id);
 			Assert.Equal(stuff.Name, actual.Name);
+
+			Assert.NotNull(stuff.Owner);
 		}
 
 		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
@@ -84,7 +107,7 @@ namespace SM.Tests.DataModels
 		}
 
 		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson_NoCommit_GetPerson()
+		public void StuffDbContext_AddPerson_GetPerson_AcrossContexts()
 		{
 			var test = ConstructTestObject();
 			var person = ConstructPerson();
@@ -93,11 +116,23 @@ namespace SM.Tests.DataModels
 
 			Assert.True(result);		// Kind of a bogus assertion.
 
-			//test.Commit();			// You need this commit to make the change persist to the database.
+			test.Commit();
 
 			person = test.GetPerson(person.LastName);
 
-			Assert.Null(person);
+			Assert.NotNull(person);
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+
+			// Verify that the object was persisted, by using a completely different context.
+
+			var test2 = ConstructTestObject();
+
+			var person2 = test2.GetPerson(person.Id);
+
+			Assert.Equal(person.Id, person2.Id);
 		}
 
 		//----==== PRIVATE ====--------------------------------------------------------------------
@@ -120,6 +155,25 @@ namespace SM.Tests.DataModels
 				FirstName = "Parker",
 				LastName = "Smart",
 				Email = "psmart@spilledmilk.com"
+			};
+		}
+
+		private Person ConstructPerson2()
+		{
+			return new Person
+			{
+				FirstName = "Bruce",
+				LastName = "Wayne",
+				Email = "batman@spilledmilk.com"
+			};
+		}
+
+		private Status ConstructStatus(Person requestor, Stuff stuff)
+		{
+			return new Status
+			{
+				Requestor = requestor,
+				Stuff = stuff
 			};
 		}
 
