@@ -20,6 +20,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.Tests.DataModels", "src\
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.DataModels.StuffDataModel.Web", "src\SM.DataModels.StuffDataModel.Web\SM.DataModels.StuffDataModel.Web.xproj", "{18DCFA14-6875-47B8-8554-A38E7F3CA552}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.DataModels.StuffDataModel.Intermediate", "src\SM.DataModels.StuffDataModel.Intermediate\SM.DataModels.StuffDataModel.Intermediate.xproj", "{5C94964B-8E64-4E97-A56D-ECC766084C8D}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SM.Tests.DataModels.Intermediate", "src\SM.Tests.DataModels.Intermediate\SM.Tests.DataModels.Intermediate.xproj", "{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +42,14 @@ Global
 		{18DCFA14-6875-47B8-8554-A38E7F3CA552}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18DCFA14-6875-47B8-8554-A38E7F3CA552}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18DCFA14-6875-47B8-8554-A38E7F3CA552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C94964B-8E64-4E97-A56D-ECC766084C8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C94964B-8E64-4E97-A56D-ECC766084C8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C94964B-8E64-4E97-A56D-ECC766084C8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C94964B-8E64-4E97-A56D-ECC766084C8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +58,7 @@ Global
 		{CC1AFFBA-840E-45F5-A8AA-5B81941D23A8} = {6D875A0E-6169-44DB-9033-72C014F08D90}
 		{C3B1D443-3603-4D61-8AD0-FC86D917C2E3} = {6D875A0E-6169-44DB-9033-72C014F08D90}
 		{18DCFA14-6875-47B8-8554-A38E7F3CA552} = {6D875A0E-6169-44DB-9033-72C014F08D90}
+		{5C94964B-8E64-4E97-A56D-ECC766084C8D} = {6D875A0E-6169-44DB-9033-72C014F08D90}
+		{69E2FB5E-0FB8-4F09-AA72-B8FA6502BAB5} = {6D875A0E-6169-44DB-9033-72C014F08D90}
 	EndGlobalSection
 EndGlobal

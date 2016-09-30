@@ -1,0 +1,27 @@
+﻿{
+	"version": "1.0.0",
+	"testRunner": "xunit",
+	"dependencies": {
+		"Microsoft.Extensions.Configuration": "1.0.0",
+		"Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
+		"Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+		"Microsoft.Extensions.Configuration.Json": "1.0.0",
+		"Microsoft.Extensions.Logging": "1.0.0",
+		"xunit": "2.2.0-*",
+		"dotnet-test-xunit": "2.2.0-*",
+
+		// SM
+
+		"SM.DataModels.StuffDataModel.Intermediate": "1.0.0"
+	},
+	"frameworks": {
+		"netcoreapp1.0": {
+			"dependencies": {
+				"Microsoft.NETCore.App": {
+					"type": "platform",
+					"version": "1.0.0"
+				}
+			}
+		}
+	}
+}
