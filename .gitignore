@@ -38,7 +38,8 @@
 ehthumbs.db
 Thumbs.db
 
-# Visual Studio
+# Visual Studio #
+#################
 .suo
 bin/
 obj/

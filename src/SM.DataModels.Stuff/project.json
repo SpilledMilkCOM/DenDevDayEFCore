@@ -2,12 +2,9 @@
 	"version": "1.0.0-*",
 
 	"dependencies": {
-		"Microsoft.NETCore.App": {
-			"version": "1.0.0",
-			"type": "platform"
-		},
+					"Microsoft.NETCore.App": "1.0.1",
 		"Microsoft.EntityFrameworkCore": "1.0.1",
-		"Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
+					"Microsoft.EntityFrameworkCore.SqlServer": "1.0.1"
 	},
 
 	"frameworks": {
