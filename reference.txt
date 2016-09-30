@@ -1,7 +1,26 @@
 https://docs.efproject.net/en/latest/miscellaneous/cli/dotnet.html
 
-Command Line:
+EF Command Line:
 
 Creates the database from the DbContext, can NOT be run from a Class Library project.
+Does NOT create your tables (only the dbo.__EFMigrationsHistory table)
 
-c:\path\to\project> dotnet ef database update
+c:\path\to\project>  dotnet ef database update
+
+Creates the migration code in the Migration folder of your project
+Does NOT create your tables yet.
+
+c:\path\to\project>  dotnet ef migrations add migration1
+
+Apply migration1 to the database creating all of your Code First tables
+
+c:\path\to\project>  dotnet ef database update
+
+Make a few changes to your Code First code.
+You want to SEE those changes affected in the database.
+The migration is still your first migration so go ahead and name it the same.
+
+c:\path\to\project>  dotnet ef migrations remove
+c:\path\to\project>  dotnet ef database update
+c:\path\to\project>  dotnet ef migrations add migration1
+c:\path\to\project>  dotnet ef database update

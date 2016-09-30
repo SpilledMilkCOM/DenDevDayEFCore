@@ -19,8 +19,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Person", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("PersonId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateJoined");
 
@@ -44,8 +43,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Status", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("StatusId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime?>("DateApproved");
 
@@ -71,8 +69,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Stuff", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("StuffId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateAdded");
 

@@ -20,7 +20,7 @@ namespace SM.Tests.DataModels
 		// Setup (just a regular old constructor)
 		public StuffDbContextIntegrationTests()
 		{
-			// Initialize stuff here
+			// Initialize class level tests here...
 
 			var currentWorkingDirectory = Path.GetDirectoryName(typeof(StuffDbContextIntegrationTests).GetTypeInfo().Assembly.Location);
 			var builder = new ConfigurationBuilder()

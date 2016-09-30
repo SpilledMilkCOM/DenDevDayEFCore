@@ -13,7 +13,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
                 name: "People",
                 columns: table => new
                 {
-                    PersonId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateJoined = table.Column<DateTime>(nullable: false),
                     Email = table.Column<string>(maxLength: 128, nullable: false),
@@ -22,14 +22,14 @@ namespace SM.DataModels.Stuff.Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_People", x => x.PersonId);
+                    table.PrimaryKey("PK_People", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Stuff",
                 columns: table => new
                 {
-                    StuffId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateAdded = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(maxLength: 64, nullable: false),
@@ -39,12 +39,12 @@ namespace SM.DataModels.Stuff.Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Stuff", x => x.StuffId);
+                    table.PrimaryKey("PK_Stuff", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Stuff_People_OwnerId",
                         column: x => x.OwnerId,
                         principalTable: "People",
-                        principalColumn: "PersonId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -52,7 +52,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
                 name: "Statuses",
                 columns: table => new
                 {
-                    StatusId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateApproved = table.Column<DateTime>(nullable: true),
                     DateCheckedIn = table.Column<DateTime>(nullable: true),
@@ -63,18 +63,18 @@ namespace SM.DataModels.Stuff.Web.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Statuses", x => x.StatusId);
+                    table.PrimaryKey("PK_Statuses", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Statuses_People_RequestorId",
                         column: x => x.RequestorId,
                         principalTable: "People",
-                        principalColumn: "PersonId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Statuses_Stuff_StuffId",
                         column: x => x.StuffId,
                         principalTable: "Stuff",
-                        principalColumn: "StuffId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
 

@@ -10,7 +10,6 @@ namespace SM.DataModels.Stuff.Entities
 	public class Stuff
 	{
 		[Key]
-		[Column("StuffId")]
 		[Required]
 		public int Id { get; set; }
 

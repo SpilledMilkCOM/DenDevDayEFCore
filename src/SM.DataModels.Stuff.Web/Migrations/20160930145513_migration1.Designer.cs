@@ -8,7 +8,7 @@ using SM.DataModels.Stuff;
 namespace SM.DataModels.Stuff.Web.Migrations
 {
     [DbContext(typeof(StuffDbContext))]
-    [Migration("20160929211902_migration1")]
+    [Migration("20160930145513_migration1")]
     partial class migration1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,8 +20,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Person", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("PersonId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateJoined");
 
@@ -45,8 +44,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Status", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("StatusId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime?>("DateApproved");
 
@@ -72,8 +70,7 @@ namespace SM.DataModels.Stuff.Web.Migrations
             modelBuilder.Entity("SM.DataModels.Stuff.Entities.Stuff", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnName("StuffId");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<DateTime>("DateAdded");
 

@@ -8,7 +8,6 @@ namespace SM.DataModels.Stuff.Entities
 	public class Person
 	{
 		[Key]
-		[Column("PersonId")]
 		[Required]
 		public int Id { get; set; }
 

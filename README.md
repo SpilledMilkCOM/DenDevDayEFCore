@@ -3,9 +3,9 @@ The FULL presentation code for my Entity Framework Core sample.
 
 Basics:
 -------
-  - _SIMPLE_ Entity Framework interaction (Code First using localdb)
+  - _Simple_ Entity Framework interaction (Code First using localdb)
   - Have to have a web project since "dotnet ef database update" doesn't work with a class library.
-  - XUnit test driven demo (_NO GUI_)
+  - XUnit test driven demo (_no GUI_)
 
 Intermediate:
 -------------

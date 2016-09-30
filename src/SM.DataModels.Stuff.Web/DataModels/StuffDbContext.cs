@@ -54,6 +54,7 @@ namespace SM.DataModels.Stuff
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
+			// Old way...
 			//modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
 			modelBuilder.Model.RemoveEntityType("OneToManyCascadeDeleteConvention");
