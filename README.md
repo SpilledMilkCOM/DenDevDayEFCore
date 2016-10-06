@@ -1,6 +1,9 @@
 # DenDevDayEFCore
 The FULL presentation code for my Entity Framework Core sample.
 
+It's OFFICIAL -- I'm only presenting the BASICS, but I will "poll" the audience and see how fast we want to go and possibly incorporate
+some of the intermediate and/or advanced topics into the talk as well.
+
 Basics:
 -------
   - _Simple_ Entity Framework interaction (Code First using localdb)
