@@ -21,6 +21,7 @@ namespace SM.Tests.DataModels
 		public StuffDbContextIntegrationTests()
 		{
 			// Initialize class level tests here...
+			// This really isn't needed, because the connection string is hard coded in the in the extension method AddStuff()
 
 			var currentWorkingDirectory = Path.GetDirectoryName(typeof(StuffDbContextIntegrationTests).GetTypeInfo().Assembly.Location);
 			var builder = new ConfigurationBuilder()
@@ -38,9 +39,59 @@ namespace SM.Tests.DataModels
 		{
 			// Cleanup stuff here (tear down)
 
-			//Cleanup();
+			Cleanup();
 
 			_serviceCollection = null;
+		}
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_AddPerson_GetPerson()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);        // Kind of a bogus assertion.
+
+			test.Commit();
+
+			person = test.GetPerson(person.LastName);
+
+			Assert.NotNull(person);
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+		}
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_AddPerson_GetPerson_AcrossContexts()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);        // Kind of a bogus assertion.
+
+			test.Commit();
+
+			person = test.GetPerson(person.LastName);
+
+			Assert.NotNull(person);
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+
+			// Verify that the object was persisted, by using a completely different context.
+
+			var test2 = ConstructTestObject();
+
+			var person2 = test2.GetPerson(person.Id);
+
+			Assert.Equal(person.Id, person2.Id);
 		}
 
 		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
@@ -83,56 +134,6 @@ namespace SM.Tests.DataModels
 			Assert.Equal(stuff.Name, actual.Name);
 
 			Assert.NotNull(stuff.Owner);
-		}
-
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson_GetPerson()
-		{
-			var test = ConstructTestObject();
-			var person = ConstructPerson();
-
-			var result = test.AddPerson(person);
-
-			Assert.True(result);        // Kind of a bogus assertion.
-
-			test.Commit();
-
-			person = test.GetPerson(person.LastName);
-
-			Assert.NotNull(person);
-
-			person = test.GetPerson(person.Id);
-
-			Assert.NotNull(person);
-		}
-
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson_GetPerson_AcrossContexts()
-		{
-			var test = ConstructTestObject();
-			var person = ConstructPerson();
-
-			var result = test.AddPerson(person);
-
-			Assert.True(result);		// Kind of a bogus assertion.
-
-			test.Commit();
-
-			person = test.GetPerson(person.LastName);
-
-			Assert.NotNull(person);
-
-			person = test.GetPerson(person.Id);
-
-			Assert.NotNull(person);
-
-			// Verify that the object was persisted, by using a completely different context.
-
-			var test2 = ConstructTestObject();
-
-			var person2 = test2.GetPerson(person.Id);
-
-			Assert.Equal(person.Id, person2.Id);
 		}
 
 		//----==== PRIVATE ====--------------------------------------------------------------------
