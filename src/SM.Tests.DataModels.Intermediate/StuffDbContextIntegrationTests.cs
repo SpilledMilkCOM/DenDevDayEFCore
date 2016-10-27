@@ -43,97 +43,97 @@ namespace SM.Tests.DataModels.Intermediate
 			_serviceCollection = null;
 		}
 
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddStatus()
-		{
-			var test = ConstructTestObject();
-			var owner = ConstructPerson();
-			var stuff = ConstructStuff(owner);
-			var requestor = ConstructPerson2();
-			var status = ConstructStatus(requestor, stuff);
+		//[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		//public void StuffDbContext_AddStatus()
+		//{
+		//	var test = ConstructTestObject();
+		//	var owner = ConstructPerson();
+		//	var stuff = ConstructStuff(owner);
+		//	var requestor = ConstructPerson2();
+		//	var status = ConstructStatus(requestor, stuff);
 
-			test.AddPerson(owner);
-			test.AddStuff(stuff);
-			test.AddStatus(status);
+		//	test.AddPerson(owner);
+		//	test.AddStuff(stuff);
+		//	test.AddStatus(status);
 
-			test.Commit();
+		//	test.Commit();
 
-			var actual = test.GetStatus(status.Id);
+		//	var actual = test.GetStatus(status.Id);
 
-			Assert.NotNull(actual);
-			Assert.Equal(status.Id, actual.Id);
-		}
+		//	Assert.NotNull(actual);
+		//	Assert.Equal(status.Id, actual.Id);
+		//}
 
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddStuff()
-		{
-			var test = ConstructTestObject();
-			var owner = ConstructPerson();
-			var stuff = ConstructStuff(owner);
+		//[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		//public void StuffDbContext_AddStuff()
+		//{
+		//	var test = ConstructTestObject();
+		//	var owner = ConstructPerson();
+		//	var stuff = ConstructStuff(owner);
 
-			test.AddPerson(owner);
-			test.AddStuff(stuff);
+		//	test.AddPerson(owner);
+		//	test.AddStuff(stuff);
 
-			test.Commit();
+		//	test.Commit();
 
-			var actual = test.GetStuff(stuff.Id);
+		//	var actual = test.GetStuff(stuff.Id);
 
-			Assert.NotNull(actual);
-			Assert.Equal(stuff.Id, actual.Id);
-			Assert.Equal(stuff.Name, actual.Name);
+		//	Assert.NotNull(actual);
+		//	Assert.Equal(stuff.Id, actual.Id);
+		//	Assert.Equal(stuff.Name, actual.Name);
 
-			Assert.NotNull(stuff.Owner);
-		}
+		//	Assert.NotNull(stuff.Owner);
+		//}
 
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson_GetPerson()
-		{
-			var test = ConstructTestObject();
-			var person = ConstructPerson();
+		//[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		//public void StuffDbContext_AddPerson_GetPerson()
+		//{
+		//	var test = ConstructTestObject();
+		//	var person = ConstructPerson();
 
-			var result = test.AddPerson(person);
+		//	var result = test.AddPerson(person);
 
-			Assert.True(result);        // Kind of a bogus assertion.
+		//	Assert.True(result);        // Kind of a bogus assertion.
 
-			test.Commit();
+		//	test.Commit();
 
-			person = test.GetPerson(person.LastName);
+		//	person = test.GetPerson(person.LastName);
 
-			Assert.NotNull(person);
+		//	Assert.NotNull(person);
 
-			person = test.GetPerson(person.Id);
+		//	person = test.GetPerson(person.Id);
 
-			Assert.NotNull(person);
-		}
+		//	Assert.NotNull(person);
+		//}
 
-		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
-		public void StuffDbContext_AddPerson_GetPerson_AcrossContexts()
-		{
-			var test = ConstructTestObject();
-			var person = ConstructPerson();
+		//[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		//public void StuffDbContext_AddPerson_GetPerson_AcrossContexts()
+		//{
+		//	var test = ConstructTestObject();
+		//	var person = ConstructPerson();
 
-			var result = test.AddPerson(person);
+		//	var result = test.AddPerson(person);
 
-			Assert.True(result);		// Kind of a bogus assertion.
+		//	Assert.True(result);		// Kind of a bogus assertion.
 
-			test.Commit();
+		//	test.Commit();
 
-			person = test.GetPerson(person.LastName);
+		//	person = test.GetPerson(person.LastName);
 
-			Assert.NotNull(person);
+		//	Assert.NotNull(person);
 
-			person = test.GetPerson(person.Id);
+		//	person = test.GetPerson(person.Id);
 
-			Assert.NotNull(person);
+		//	Assert.NotNull(person);
 
-			// Verify that the object was persisted, by using a completely different context.
+		//	// Verify that the object was persisted, by using a completely different context.
 
-			var test2 = ConstructTestObject();
+		//	var test2 = ConstructTestObject();
 
-			var person2 = test2.GetPerson(person.Id);
+		//	var person2 = test2.GetPerson(person.Id);
 
-			Assert.Equal(person.Id, person2.Id);
-		}
+		//	Assert.Equal(person.Id, person2.Id);
+		//}
 
 		//----==== PRIVATE ====--------------------------------------------------------------------
 
