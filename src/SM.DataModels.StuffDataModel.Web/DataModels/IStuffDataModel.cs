@@ -27,5 +27,5 @@ namespace SM.DataModels.StuffDataModel
 		Status GetStatus(int id);
 
 		Stuff GetStuff(int id);
-	}
+    }
 }

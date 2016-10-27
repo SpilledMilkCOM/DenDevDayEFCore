@@ -136,6 +136,64 @@ namespace SM.Tests.DataModels
 			Assert.NotNull(stuff.Owner);
 		}
 
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_UpdatePerson_ContextCaches()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);        // Kind of a bogus assertion.
+
+			test.Commit();
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+
+			person.Email = "updated@spilledmilk.com";
+
+			test.Commit();
+
+			var updatedPerson = test.GetPerson(person.Id);
+
+			Assert.Same(person, updatedPerson);
+			Assert.Equal(person.Email, updatedPerson.Email);
+		}
+
+
+		[Fact, Trait(TEST_TRAIT, TEST_TRAIT)]
+		public void StuffDbContext_UpdatePersonAcrossContext()
+		{
+			var test = ConstructTestObject();
+			var person = ConstructPerson();
+
+			var result = test.AddPerson(person);
+
+			Assert.True(result);        // Kind of a bogus assertion.
+
+			test.Commit();
+
+			person = test.GetPerson(person.Id);
+
+			Assert.NotNull(person);
+
+			person.Email = "updated@spilledmilk.com";
+
+			test.Commit();
+
+			// Verify that the object was persisted, by using a completely different context.
+
+			var test2 = ConstructTestObject();
+
+			var person2 = test2.GetPerson(person.Id);
+
+			Assert.NotSame(person, person2);
+			Assert.Equal(person.Id, person2.Id);
+			Assert.Equal(person.Email, person2.Email);
+		}
+
 		//----==== PRIVATE ====--------------------------------------------------------------------
 
 		private void Cleanup()
