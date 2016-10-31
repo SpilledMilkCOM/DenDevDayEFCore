@@ -8,8 +8,8 @@ using SM.DataModels.StuffDataModel;
 namespace SM.DataModels.StuffDataModel.Web.Migrations
 {
     [DbContext(typeof(StuffDbContext))]
-    [Migration("20161027180214_migration1")]
-    partial class migration1
+    [Migration("20161028182131_version1")]
+    partial class version1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

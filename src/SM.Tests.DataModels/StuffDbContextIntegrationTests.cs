@@ -39,7 +39,7 @@ namespace SM.Tests.DataModels
 		{
 			// Cleanup stuff here (tear down)
 
-			Cleanup();
+			//Cleanup();
 
 			_serviceCollection = null;
 		}
@@ -91,6 +91,7 @@ namespace SM.Tests.DataModels
 
 			var person2 = test2.GetPerson(person.Id);
 
+			Assert.NotSame(person, person2);
 			Assert.Equal(person.Id, person2.Id);
 		}
 
