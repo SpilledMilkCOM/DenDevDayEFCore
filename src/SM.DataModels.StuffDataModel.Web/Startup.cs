@@ -25,6 +25,8 @@ namespace SM.DataModels.StuffDataModel.Web
                 app.UseDeveloperExceptionPage();
             }
 
+			// This will NOT serve up any HTML.
+
             app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Nothing interesting to see here...");

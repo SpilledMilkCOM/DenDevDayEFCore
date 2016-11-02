@@ -1,12 +1,12 @@
-﻿using System;
-using SM.DataMappers.Common;
+﻿using SM.DataMappers.Common;
+using SM.DataModels.StuffDataModel.DataMappers.Interfaces;
 
 using BO = SM.BusinessObjects.Stuff;
 using DM = SM.DataModels.StuffDataModel.Entities;
 
 namespace SM.DataModels.StuffDataModel.DataMappers
 {
-	public class PersonDataMapper : DataMapper<BO.Person, DM.Person>
+	public class PersonDataMapper : DataMapper<BO.Person, DM.Person>, IPersonDataMapper
 	{
 		// The methods are constructing the objects and manually assigning the values. "brute force"
 
