@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SM.DataModels.StuffDataModel.Entities.Intermediate
+namespace SM.DataModels.StuffDataModel.Entities
 {
 	[Table("Statuses")]                             // DBA's like pluralized tables.
 	public class Status

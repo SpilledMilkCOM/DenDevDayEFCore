@@ -6,10 +6,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-using SM.DataModels.StuffDataModel.Intermediate;
-using SM.DataModels.StuffDataModel.Entities.Intermediate;
+using SM.DataModels.StuffDataModel;
+using SM.DataModels.StuffDataModel.Entities;
 
-namespace SM.Tests.DataModels.Intermediate
+namespace SM.Tests.DataModels
 {
 	public class StuffDbContextIntegrationTests : IDisposable
 	{

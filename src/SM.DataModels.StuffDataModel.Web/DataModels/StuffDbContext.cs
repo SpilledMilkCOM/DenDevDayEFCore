@@ -22,6 +22,7 @@ namespace SM.DataModels.StuffDataModel
 
 		public bool AddPerson(Person person)
 		{
+			// Setting the date might be something that a repository would do.
 			person.DateJoined = DateTime.Now;
 
 			People.Add(person);
@@ -31,6 +32,7 @@ namespace SM.DataModels.StuffDataModel
 
 		public bool AddStatus(Status status)
 		{
+			// Setting the date might be something that a repository would do.
 			status.DateRequested = DateTime.Now;		// This starts the "workflow"
 
 			Statuses.Add(status);
@@ -40,6 +42,7 @@ namespace SM.DataModels.StuffDataModel
 
 		public bool AddStuff(Stuff stuff)
 		{
+			// Setting the date might be something that a repository would do.
 			stuff.DateAdded = DateTime.Now;
 
 			Stuff.Add(stuff);

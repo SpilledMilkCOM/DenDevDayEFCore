@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;			// For [Key]
 using System.ComponentModel.DataAnnotations.Schema;		// For [Table], [Column]
 
-namespace SM.DataModels.StuffDataModel.Entities.Intermediate
+namespace SM.DataModels.StuffDataModel.Entities
 {
 	[Table("People")]                              // DBA's like pluralized tables.
 	public class Person

@@ -3,9 +3,9 @@ using System.Linq;
 
 using Microsoft.EntityFrameworkCore;
 
-using SM.DataModels.StuffDataModel.Entities.Intermediate;
+using SM.DataModels.StuffDataModel.Entities;
 
-namespace SM.DataModels.StuffDataModel.Intermediate
+namespace SM.DataModels.StuffDataModel
 {
 	public class StuffDbContext : DbContext, IStuffDataModel
 	{

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SM.DataModels.StuffDataModel.Intermediate
+namespace SM.DataModels.StuffDataModel
 {
     public static class IServiceCollectionExtensions
     {
