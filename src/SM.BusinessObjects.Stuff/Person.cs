@@ -20,7 +20,7 @@ namespace SM.BusinessObjects.Stuff
 
 		public DateTime DateJoined { get; set; }
 
-		[NonSerialized]
+		//[NonSerialized]
 		public bool IsValid
 		{
 			get
