@@ -27,7 +27,7 @@ namespace SM.DataModels.StuffDataModel.Web
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                await context.Response.WriteAsync("Nothing interesting to see here...");
             });
         }
     }
