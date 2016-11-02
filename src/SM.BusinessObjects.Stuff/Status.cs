@@ -10,6 +10,8 @@ namespace SM.BusinessObjects.Stuff
 
 		public DateTime? DateApproved { get; set; }
 
+		public DateTime? DateCheckedIn { get; set; }
+
 		public DateTime? DateCheckedOut { get; set; }
 
 		public DateTime? DateRequested { get; set; }
