@@ -6,6 +6,16 @@ namespace SM.DataModels.StuffDataModel.Repositories
     {
 	    bool Add(Person person);
 
+	    void ApproveRequest(int statusId);
+
+	    void CancelCheckOut(int statusId);
+
+	    void CancelRequest(int statusId);
+
+		void CheckInStuff(Stuff stuff);
+
+		void CheckOutStuff(Stuff stuff);
+
 	    Person Get(int personId);
 
 	    Person Get(string email);

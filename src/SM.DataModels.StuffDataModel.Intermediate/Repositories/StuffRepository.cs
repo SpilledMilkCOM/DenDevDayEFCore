@@ -24,6 +24,31 @@ namespace SM.DataModels.StuffDataModel.Intermediate.Repositories
 			return _dataModel.AddPerson(_personMapper.Map(person));
 		}
 
+		public void ApproveRequest(int statusId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CancelCheckOut(int statusId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CancelRequest(int statusId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CheckInStuff(Stuff stuff)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void CheckOutStuff(Stuff stuff)
+		{
+			throw new NotImplementedException();
+		}
+
 		public Person Get(string email)
 		{
 			throw new NotImplementedException();
