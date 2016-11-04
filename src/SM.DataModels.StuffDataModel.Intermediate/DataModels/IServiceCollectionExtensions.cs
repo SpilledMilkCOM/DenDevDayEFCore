@@ -10,9 +10,10 @@ namespace SM.DataModels.StuffDataModel
 {
     public static class IServiceCollectionExtensions
     {
-		private const string CONNECTION_STRING = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=StuffIntermediate";
+		//private const string CONNECTION_STRING = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=StuffIntermediate";
+		private const string CONNECTION_STRING = "Data Source=(localdb)\\mssqllocaldb;Initial Catalog=Stuff";
 
-	    public static void AddStuff(this IServiceCollection services)
+		public static void AddStuff(this IServiceCollection services)
 	    {
 		    services.AddStuffBusinessObjects();
 		    services.AddScoped<IStuffDataModel, StuffDbContext>();
