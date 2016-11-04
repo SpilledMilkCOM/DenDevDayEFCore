@@ -4,11 +4,11 @@ using SM.BusinessObjects.Stuff.Interfaces;
 
 namespace SM.BusinessObjects.Stuff
 {
-	public class Stuff : IStuff
+	internal class Stuff : IStuff
     {
 		public int Id { get; set; }
 
-		public Person Owner { get; set; }
+		public IPerson Owner { get; set; }
 
 		public string Name { get; set; }
 

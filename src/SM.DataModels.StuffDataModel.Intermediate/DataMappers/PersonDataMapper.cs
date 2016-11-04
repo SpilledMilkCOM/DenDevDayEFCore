@@ -1,16 +1,25 @@
-﻿using SM.DataMappers.Common;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SM.DataMappers.Common;
 using SM.DataModels.StuffDataModel.DataMappers.Interfaces;
 
-using BO = SM.BusinessObjects.Stuff;
+// Since this mapper is more like a mediator, then treat these objects equally and alias them BOTH!
+
+using BO = SM.BusinessObjects.Stuff.Interfaces;
 using DM = SM.DataModels.StuffDataModel.Entities;
 
 namespace SM.DataModels.StuffDataModel.DataMappers
 {
-	public class PersonDataMapper : DataMapper<BO.Person, DM.Person>, IPersonDataMapper
+	public class PersonDataMapper : DataMapper<BO.IPerson, DM.Person>, IPersonDataMapper
 	{
+		public PersonDataMapper(IServiceCollection serviceCollection)
+			: base(serviceCollection)
+		{
+		}
+
 		// The methods are constructing the objects and manually assigning the values. "brute force"
 
-		public override DM.Person Map(BO.Person businessObject)
+		public override DM.Person Map(BO.IPerson businessObject)
 		{
 			// These are pretty easy to create (intellisense REALLY helps)
 
@@ -24,16 +33,20 @@ namespace SM.DataModels.StuffDataModel.DataMappers
 			};
 		}
 
-		public override BO.Person Map(DM.Person entity)
+		public override BO.IPerson Map(DM.Person entity)
 		{
-			return new BO.Person()
-			{
-				DateJoined = entity.DateJoined,
-				Email = entity.Email,
-				FirstName = entity.FirstName,
-				Id = entity.Id,
-				LastName = entity.LastName
-			};
+			// The construction might be slower than doing a "new", but the flexibility of using the IoC Container is nice.
+			// If you are shooting for PURE SPEED, then stick with doing a "new".
+
+			var result = ServiceProvider.GetRequiredService<BO.IPerson>();
+
+			result.DateJoined = entity.DateJoined;
+			result.Email = entity.Email;
+			result.FirstName = entity.FirstName;
+			result.Id = entity.Id;
+			result.LastName = entity.LastName;
+
+			return result; ;
 		}
 	}
 }

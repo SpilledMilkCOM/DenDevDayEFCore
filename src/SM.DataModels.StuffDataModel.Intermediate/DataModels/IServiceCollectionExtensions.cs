@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 
+using SM.BusinessObjects.Stuff;
 using SM.DataModels.StuffDataModel.DataMappers;
 using SM.DataModels.StuffDataModel.DataMappers.Interfaces;
 
@@ -13,6 +14,7 @@ namespace SM.DataModels.StuffDataModel
 
 	    public static void AddStuff(this IServiceCollection services)
 	    {
+		    services.AddStuffBusinessObjects();
 		    services.AddScoped<IStuffDataModel, StuffDbContext>();
 		    services.AddScoped<IPersonDataMapper, PersonDataMapper>();
 

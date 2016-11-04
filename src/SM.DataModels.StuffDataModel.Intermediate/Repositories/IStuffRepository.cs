@@ -1,10 +1,10 @@
-﻿using SM.BusinessObjects.Stuff;
+﻿using SM.BusinessObjects.Stuff.Interfaces;
 
 namespace SM.DataModels.StuffDataModel.Repositories
 {
 	public interface IStuffRepository
     {
-	    bool Add(Person person);
+	    bool Add(IPerson person);
 
 	    void ApproveRequest(int statusId);
 
@@ -12,13 +12,13 @@ namespace SM.DataModels.StuffDataModel.Repositories
 
 	    void CancelRequest(int statusId);
 
-		void CheckInStuff(Stuff stuff);
+		void CheckInStuff(IStuff stuff);
 
-		void CheckOutStuff(Stuff stuff);
+		void CheckOutStuff(IStuff stuff);
 
-	    Person Get(int personId);
+	    IPerson Get(int personId);
 
-	    Person Get(string email);
+	    IPerson Get(string email);
 
 	    void RequestStuff(int stuffId, int personId);
     }

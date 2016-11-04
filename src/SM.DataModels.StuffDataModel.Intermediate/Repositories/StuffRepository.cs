@@ -1,6 +1,6 @@
 ﻿using System;
 
-using SM.BusinessObjects.Stuff;
+using SM.BusinessObjects.Stuff.Interfaces;
 using SM.DataModels.StuffDataModel.DataMappers.Interfaces;
 using SM.DataModels.StuffDataModel.Repositories;
 
@@ -19,7 +19,7 @@ namespace SM.DataModels.StuffDataModel.Intermediate.Repositories
 			_personMapper = personMapper;
 		}
 
-		public bool Add(Person person)
+		public bool Add(IPerson person)
 		{
 			return _dataModel.AddPerson(_personMapper.Map(person));
 		}
@@ -39,28 +39,34 @@ namespace SM.DataModels.StuffDataModel.Intermediate.Repositories
 			throw new NotImplementedException();
 		}
 
-		public void CheckInStuff(Stuff stuff)
+		public void CheckInStuff(IStuff stuff)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void CheckOutStuff(Stuff stuff)
+		public void CheckOutStuff(IStuff stuff)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Person Get(string email)
+		public IPerson Get(string email)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Person Get(int personId)
+		public IPerson Get(int personId)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void RequestStuff(int stuffId, int personId)
+		/// <summary> Requesting stuff STARTS the workflow and adds a row to the status table.
+		/// </summary>
+		/// <param name="stuffId">The ID of Stuff</param>
+		/// <param name="personRequestingId">The ID of the Person requesting the Stuff</param>
+		public void RequestStuff(int stuffId, int personRequestingId)
 		{
+			// Do we need a full blown Stuff object?  Probably not.
+
 			throw new NotImplementedException();
 		}
 	}

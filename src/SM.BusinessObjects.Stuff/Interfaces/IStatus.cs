@@ -5,10 +5,17 @@ namespace SM.BusinessObjects.Stuff.Interfaces
 	public interface IStatus
 	{
 		int Id { get; set; }
+
 		DateTime? DateApproved { get; set; }
+
+		DateTime? DateCheckedIn { get; set; }
+
 		DateTime? DateCheckedOut { get; set; }
+
 		DateTime? DateRequested { get; set; }
-		Person Requestor { get; set; }
-		Stuff Stuff { get; set; }
+
+		IPerson Requestor { get; set; }
+
+		IStuff Stuff { get; set; }
 	}
 }

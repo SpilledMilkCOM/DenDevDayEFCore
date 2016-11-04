@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SM.DataMappers.Common
 {
@@ -7,6 +9,17 @@ namespace SM.DataMappers.Common
 		// This class will grow as needed to incorporate the majority of the "typical" mappings.
 		// TODO: Use reflection to do the property name mappings
 		// Possibly inject the KIND of mapping that will be done.
+
+		public DataMapper(IServiceCollection serviceCollection)
+		{
+			// This will effectively take a snapshot of the current state of the service collection,
+			// so all of the needed objects should be defined up to this point.
+			// Build this service provider here so you're NOT building during every single map call.
+
+			ServiceProvider = serviceCollection.BuildServiceProvider();
+		}
+
+		protected IServiceProvider ServiceProvider { get; set; }
 
 		public abstract TBizObj Map(TDataEntity entity);
 

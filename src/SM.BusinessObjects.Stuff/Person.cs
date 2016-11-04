@@ -4,7 +4,7 @@ using SM.BusinessObjects.Stuff.Interfaces;
 
 namespace SM.BusinessObjects.Stuff
 {
-	public class Person : IPerson
+	internal class Person : IPerson
 	{
 		public Person()
 		{

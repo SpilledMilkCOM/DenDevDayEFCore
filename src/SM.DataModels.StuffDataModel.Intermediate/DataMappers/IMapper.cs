@@ -4,8 +4,6 @@ namespace SM.DataMappers.Common
 {
 	public interface IMapper<T1, T2>
 	{
-		// TODO: Change this to the main interface.  IDataMapper
-
 		T2 Map(T1 source);
 
 		T1 Map(T2 source);

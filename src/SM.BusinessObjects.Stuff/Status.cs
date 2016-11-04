@@ -4,7 +4,7 @@ using SM.BusinessObjects.Stuff.Interfaces;
 
 namespace SM.BusinessObjects.Stuff
 {
-	public class Status : IStatus
+	internal class Status : IStatus
 	{
 		public int Id { get; set; }
 
@@ -16,9 +16,8 @@ namespace SM.BusinessObjects.Stuff
 
 		public DateTime? DateRequested { get; set; }
 
-		public Person Requestor { get; set; }
+		public IPerson Requestor { get; set; }
 
-		public Stuff Stuff { get; set; }
-
+		public IStuff Stuff { get; set; }
 	}
 }
