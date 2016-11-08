@@ -9,11 +9,10 @@
 		"Microsoft.Extensions.Logging": "1.0.0",
 		"xunit": "2.2.0-*",
 		"dotnet-test-xunit": "2.2.0-*",
-
 		// SM
-
 		"SM.DataModels.StuffDataModel.Web": "1.0.0"
 	},
+
 	"frameworks": {
 		"netcoreapp1.0": {
 			"dependencies": {
